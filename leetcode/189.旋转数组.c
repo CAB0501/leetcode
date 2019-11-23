@@ -46,6 +46,7 @@
 
 
 void rotate(int* nums, int numsSize, int k){
+
     int a[numsSize];
     for (int i = 0; i < numsSize; i++)
     {
@@ -58,19 +59,38 @@ void rotate(int* nums, int numsSize, int k){
         nums[i] = a[i];
     } 
 }
-// void rotate(int* nums, int numsSize, int k){
-//     for (int i = 0; i < k; i++)
-//     {
-//         int lastNum = nums[numsSize-1];
-//         for (int j = 0; j < numsSize; j++)
-//         {
-//             int firstNum = nums[j];
-//             nums[j] = lastNum;
-//             lastNum = firstNum;
-//         }
-        
-//     }
-// }
 
+void rotate(int* nums, int numsSize, int k){
+
+    for (int i = 0; i < k; i++)
+    {
+        int lastNum = nums[numsSize-1];
+        for (int j = 0; j < numsSize; j++)
+        {
+            int firstNum = nums[j];
+            nums[j] = lastNum;
+            lastNum = firstNum;
+        }
+        
+    }
+}
+
+void rotate(int* nums, int numsSize, int k){
+    k %= numsSize;
+    Reversal(nums,0,numsSize-1);
+    Reversal(nums,0,k-1);
+    Reversal(nums,k,numsSize-1);
+} 
+
+void Reversal(int* nums,int StatrIndx,int EndIndex){
+
+    while(StatrIndx < EndIndex){ 
+		int startNum = nums[StatrIndx];
+		nums[StatrIndx] = nums[EndIndex];
+		nums[EndIndex] = startNum;
+		StatrIndx++;
+		EndIndex--;
+	}
+}
 // @lc code=end
 
