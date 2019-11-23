@@ -58,7 +58,19 @@ void rotate(int* nums, int numsSize, int k){
         nums[i] = a[i];
     } 
 }
-
+// void rotate(int* nums, int numsSize, int k){
+//     for (int i = 0; i < k; i++)
+//     {
+//         int lastNum = nums[numsSize-1];
+//         for (int j = 0; j < numsSize; j++)
+//         {
+//             int firstNum = nums[j];
+//             nums[j] = lastNum;
+//             lastNum = firstNum;
+//         }
+        
+//     }
+// }
 
 // @lc code=end
 
