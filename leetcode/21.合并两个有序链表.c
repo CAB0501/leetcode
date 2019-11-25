@@ -34,36 +34,33 @@
 
 struct ListNode *mergeTwoLists(struct ListNode *l1, struct ListNode *l2)
 {
-    //感谢题解,再研究研究
-    if (l1 == NULL)
+    if(l1 == NULL){
         return l2;
-    if (l2 == NULL)
+    }
+    if (l2 == NULL){
         return l1;
-    struct ListNode *p = l1;
-    struct ListNode *q;
-    while (p->next != NULL)
-        p = p->next;
-
-    p->next = l2;
-    //冒泡排序排列val值(看的题解)
-    int temp;
-    for (p = l1; p; p = p->next)
+    } 
+    struct ListNode *pNode = l1;
+    while (pNode->next != NULL)
     {
-        struct ListNode *ptr;
-        for (q = p->next; q; q = q->next)
-        {
-            ptr = p;
-            if (ptr->val > q->val)
+        pNode = pNode->next;
+    }
+    pNode->next = l2;
+    struct ListNode *head = l1;
+    struct ListNode *end = NULL;
+    while (head != end)
+    {
+        while(head->next != end){
+            if (head->next->val < head->val)
             {
-                temp = q->val;
-                q->val = p->val;
-                p->val = temp;
+                int data = head->next->val;
+                head->next->val = head->val;
+                head->val = data;
             }
-            else
-            {
-                ptr = q;
-            }
+            head = head->next;
         }
+        end = head;
+        head = l1;
     }
     return l1;
 }
