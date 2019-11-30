@@ -61,7 +61,7 @@
 
 // @lc code=start
 class Solution {
-    public int removeElement(final int[] nums, final int val) {
+    public int removeElement(final int[] nums, final int val) { 
         int i = 0;
         int j = nums.length - 1;
         int res = 0;
