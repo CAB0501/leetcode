@@ -61,7 +61,7 @@
 
 // @lc code=start
 public class Solution {
-    public int RemoveElement(int[] nums, int val) {
+    public int RemoveElement(int[] nums, int val){
         //双指针
         int i = 0;
         int j = nums.Length - 1;
